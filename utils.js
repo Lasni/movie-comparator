@@ -10,13 +10,14 @@ const fetchMovies = async (searchTerm) => {
 };
 
 // onMovieSelect
-const fetchMovie = async (movie) => {
+const onMovieSelect = async (movie) => {
   const response = await axios.get(`http://www.omdbapi.com`, {
     params: {
       apikey: 45384805,
       i: movie.imdbID,
     },
   });
+  console.log(response)
   document.querySelector("#summary").innerHTML = movieTemplate(response.data);
 };
 
