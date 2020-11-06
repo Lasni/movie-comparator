@@ -45,12 +45,12 @@ const runComparison = () => {
   leftSideStats.forEach((leftStat, index) => {
     const rightStat = rightSideStats[index];
 
-    const leftSideValue = leftStat.dataset.value;
-    const rightSideValue = rightStat.dataset.value;
+    const leftSideValue = parseInt(leftStat.dataset.value);
+    const rightSideValue = parseInt(rightStat.dataset.value);
 
     // console.log(leftSideValue > rightSideValue);
     console.log(
-      `comparing left side: ${leftSideValue} with right side: ${rightSideValue}`
+      `comparing left side: ${leftSideValue} ${typeof leftSideValue} with right side: ${rightSideValue} ${typeof rightSideValue}`
     );
     console.log(
       `Winner: ${
@@ -58,8 +58,7 @@ const runComparison = () => {
       }`
     );
 
-    if (rightSideValue === "NaN" && leftSideValue === "NaN") {
-      // console.log(rightSideValue)
+    if (isNaN(rightSideValue) && isNaN(leftSideValue)) {
       rightStat.classList.remove("is-primary");
       leftStat.classList.remove("is-primary");
     } else if (rightSideValue > leftSideValue) {
